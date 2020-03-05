@@ -1,0 +1,18 @@
+*****************************************************
+*               Bem Vindo a Ajuda!!!                *
+*---------------------------------------------------*
+*                                                   *
+* Descrição: Este script tem por objetivo ajudar    *
+* na pos instalação de um sistema GNU/Linux.        *
+* Este script é mais voltado para desenvolvedores.  *
+* Temos a opção de instalar um ambiente completo    *
+* de desenvolvimento Linux, com varias bibliotecas  *
+* e compiladores de linguagens como: C/C++, Java,   *
+* assembly, etc.                                    *
+*  *
+*  *
+*  *
+*  *
+*  *
+*  *
+*****************************************************

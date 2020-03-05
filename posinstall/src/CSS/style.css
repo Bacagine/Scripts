@@ -1,0 +1,74 @@
+/**************************************************************************
+ * Arquivo de estilo do site:  *
+ *                                                                        *
+ * Site com as tabelas de cores RGB em Hexadecimal:                       *
+ * https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb  *
+ *                                                                        *
+ * Programa criado por Gustavo Bacagine <gustavo.bacagine@protonmail.com> *
+ *                                                                        *
+ * Data: dd/mm/aaaa                                                       *
+ **************************************************************************/
+
+/* TAGs */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	
+}
+
+h1{
+    font-family: Helvetica, Arial, "Times New Roman";
+    text-shadow: 1px 1px 1px #111111;
+}
+
+p{
+    color: ;
+    font-size: 15px;
+	font-family: Helvetica, Arial, "Times New Roman";
+    text-shadow: 1px 1px 1px #111111;
+}
+
+header{
+    
+}
+
+footer{
+    color: ;
+/*     font-size: 15px; */
+    font-family: Helvetica, Arial, "Times New Roman";
+    text-shadow: ;
+}
+
+/* IDs */
+#conteudo{
+    
+}
+
+#logo{
+    float: ;
+}
+
+#menu{
+    float: ;
+}
+
+#menu a{
+    color: ;
+    text-shadow: ;
+    text-decoration: none;
+    padding: ;
+}
+
+#menu a:hover{
+    background-color: ;
+    color: ;
+}
+
+/* Classes */
+.container{
+    width: 960px;
+	margin: 0 auto;
+}
