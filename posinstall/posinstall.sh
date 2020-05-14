@@ -9,94 +9,106 @@
 # Data da última modificação: 05/03/2020
 
 # Atualiza os repositorios
-function update_repository(){
-    sudo apt update
+update_repository(){
+    sudo apt-get update
     sleep 5
 }
 
 # Atualiza o source.list do Debian
 # para repositorios mais próximos
-function update_sources(){
-    sudo apt install netselect-apt
+update_sources(){
+    sudo apt-get install netselect-apt
     sudo netselect-apt stable
     mv /etc/apt/source.list /etc/apt/source.list.origin
     mv ./source.list /etc/apt/
-    sudo apt update
+    sudo apt-get update
     echo "Concluído com sucesso!!!"
     sleep 5
 }
 
+# Instala o gnome minimal
+gnome_minimal_install(){
+    sudo apt-get install xorg gdm3 gnome-session gnome-control-center \
+    network-manager pulseaudio gnome-terminal gnome-tweaks nautilus \
+    adwaita-icon-theme gnome-icon-theme gnome-themes-standard --no-install-recommends
+}
+
 # Instala o firewall ufw
-function Ufw_Install(){
-    sudo apt install ufw
+Ufw_Install(){
+    sudo apt-get install ufw
     sleep 5
 }
 
 # Instala um gerenciador gráfico para
 # o firewall ufw
-function Gufw_Install(){
-    sudo apt install gufw
+Gufw_Install(){
+    sudo apt-get install gufw
     sleep 5
 }
 
 # 5
-function Firmwares_NonFree(){
+Firmwares_NonFree(){
     clear
     echo "Instalando firmwares-nonfree"
-    sudo apt install firmware-linux-nonfree -y
+    sudo apt-get install firmware-linux-nonfree -y
     sleep 5
 }
 
 # 6
-function development_envrionment(){
+development_envrionment(){
     clear
     echo "Instalando ambiente de desenvolvimento Gnu/Linux...."
-    sudo apt install build-essential nasm ruby git kdevelop konsole geany \
-    retext codeblocks -y;
+    sudo apt-get install build-essential autoconf automake bison cpp ddd \
+    exuberant-ctags flex gawk gdb gettext gfortran fpc glade xutils-dev \
+    mawk perl tcl tk vim susv2 susv3 coreutils debianutils moreutils \
+    x11-utils whiptail dialog zenity ssft libc6-dev valgrind eletric-fence \
+    leaktracer libdmalloc5 splint flawfinder pylint weblint-perl linklint \
+    libxml2-utils byacc btyacc f2c intel2gas   nasm ruby git kdevelop \
+    konsole geany retext codeblocks texlive-full texstudio -y;
 
     echo "Criando modelos de arquivos fonte..."
-    mkdir -p /home/$USER/Modelos/Arquivos_Fonte/ && cp -r ./src/ /home/$USER/Modelos/Arquivos_Fonte/
+    mkdir -p /home/$USER/Modelos/Arquivos_Fonte/ && cp -r ./src/* /home/$USER/Modelos/Arquivos_Fonte/
 }
 
 # Instala servidor LAMP no Ubunto
-function Lamp_Install_Ubuntu(){
+Lamp_Install_Ubuntu(){
     clear
     echo "Preparando para instalar servidor LAMP"
     echo ""
     echo "Atualizando sistema..."
-    sudo apt update
-    sudo apt upgrade -y
+    sudo apt-get update
+    sudo apt-get upgrade -y
     echo "Instalando MySQL Server"
-    sudo apt install mysql-server mysql-client -y
+    sudo apt-get install mysql-server mysql-client -y
     echo "Instalando apache2 e PHP"
-    sudo apt install apache2 php -y
+    sudo apt-get install apache2 php -y
     echo "Instalação Concluída com Sucesso"
     sleep 5
 }
 
 # Instala servidor LAMP no Debian
-function Lamp_Install_Debain(){
+Lamp_Install_Debain(){
     clear
     echo "Preparando para instalar servidor LAMP"
     echo ""
     echo "Atualizando sistema..."
-    sudo apt update && sudo apt upgrade -y
+    sudo apt-get update && sudo apt upgrade -y
     wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
     sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
     echo "Atualizando repositorios"
-    sudo apt update
+    sudo apt-get update
     echo "Instalando MySQL Server"
-    sudo apt install mysql-server -y
-    sudo apt build-dep mysql-server -y
+    sudo apt-get install mysql-server -y
+    sudo apt-get build-dep mysql-server -y
     echo "Instalando apache2 e PHP"
-    sudo apt install apache2 php -y
+    sudo apt-get install apache2 php -y
     echo "Instalação Concluída com Sucesso"
     sleep 5
 }
 
 # Instalação do Mysql_Workbench para 
 # sistemas baseados no Ubuntu
-function Mysql_Workbench_Ubuntu(){
+Mysql_Workbench_Ubuntu(){
     clear
     echo "Preparando para instalar MySQL Workbench Community"
     echo ""
@@ -104,12 +116,12 @@ function Mysql_Workbench_Ubuntu(){
     sudo add-apt-repository ppa:olivier-berten/misc
     echo ""
     echo "Atualizando sistema..."
-    sudo apt update
-    sudo apt upgrade
+    sudo apt-get update
+    sudo apt-get upgrade
     echo "Instalando MySQL Server"
-    sudo apt install mysql-server mysql-client -y
+    sudo apt-get install mysql-server mysql-client -y
     echo "Instalando MySQL Workbench Community"
-    sudo apt install mysql-workbench -y
+    sudo apt-get install mysql-workbench -y
     echo ""
     echo "Instalação Concluída com Sucesso!!!"
     sleep 5
@@ -117,23 +129,23 @@ function Mysql_Workbench_Ubuntu(){
 
 # Instalação do Mysql_Workbench para 
 # sistemas baseados no Debian
-function Mysql_Workbench_Debian(){
+Mysql_Workbench_Debian(){
     clear
     echo "Preparando para instalar MySQL Workbench Community 8.0.16"
     echo ""
     echo "Atualizando sistema..."
-    sudo apt update && sudo apt upgrade -y
+    sudo apt-get update && sudo apt-get upgrade -y
     wget https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
     sudo dpkg -i mysql-apt-config_0.8.15-1_all.deb
     echo "Atualizando repositorios"
-    sudo apt update
+    sudo apt-get update
     echo "Instalando MySQL Server"
-    sudo apt install mysql-server -y
-    sudo apt build-dep mysql-server -y
+    sudo apt-get install mysql-server -y
+    sudo apt-get build-dep mysql-server -y
     wget https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community_8.0.16-1ubuntu18.04_amd64.deb
     echo "Instalando MySQL Workbench Community"
     sudo dpkg -i mysql-workbench-community_8.0.16-1ubuntu18.04_amd64.deb
-    sudo apt install -f -y
+    sudo apt-get install -f -y
     sudo dpkg -i mysql-workbench-community_8.0.16-1ubuntu18.04_amd64.deb
     echo ""
     echo "Instalação Concluída com Sucesso!!!"
@@ -141,7 +153,7 @@ function Mysql_Workbench_Debian(){
 }
 
 # Muda o shell do usuário
-function mudar_shell(){
+mudar_shell(){
     echo "Esses são os shells instalados em sua máquina:"
     cat /etc/shells
 #    echo "Escolha um novo shell: "
@@ -151,17 +163,17 @@ function mudar_shell(){
 }
 
 # Atualiza o sistema
-function Upgrade_System(){
-    sudo apt update && sudo apt upgrade -y
+Upgrade_System(){
+    sudo apt-get update && sudo apt-get upgrade -y
     sleep 5
 }
 
 # Mostra um arquivo de ajuda
-function ajuda(){
+ajuda(){
     less help.txt
 }
 
-#sudo wget curl aptitude htop links elinks lynx screenfetch neofetch cmatrix python3-multibootusb \
+#sudo apt-get install wget curl aptitude htop links elinks lynx screenfetch neofetch cmatrix python3-multibootusb \
 #snap woeusb timeshift flameshot 
 
 #firmware-atheros firmware-intelwimax firmware-iwlwifi intel-microcode
@@ -175,18 +187,19 @@ clear
 echo "****************POS INSTALAÇÃO LINUX*****************"
 echo "* 1  - Atualizar repositorios                       *"
 echo "* 2  - Atualizar source.list (Debian)               *"
-echo "* 3  - Instalar firewall ufw                        *"
-echo "* 4  - Instalar gufw                                *"
-echo "* 5  - Instalar firmwares non-free                  *"
-echo "* 6  - Instalar ambiente de desenvolvimento         *"
-echo "* 7  - Instalar LAMP (Ubuntu)                       *"
-echo "* 8  - Instalar LAMP (Debian)                       *"
-echo "* 9  - Instalar MySQL Workbench (Ubuntu)            *"
-echo "* 10 - Instalar MySQL Workbench (Debian)            *" 
-echo "* 11 - Mudar o shell do usuário                     *"
-echo "* 12 - Atualizar sistema                            *"
-echo "* 13 - Ajuda                                        *"
-echo "* 14 - Sair                                         *"
+echo "* 3  - Instalar Gnome                               *"
+echo "* 4  - firewall ufw                                 *"
+echo "* 5  - Instalar gufw                                *"
+echo "* 6  - Instalar firmwares non-free                  *"
+echo "* 7  - Instalar ambiente de desenvolvimento         *"
+echo "* 8  - Instalar LAMP (Ubuntu)                       *"
+echo "* 9  - Instalar LAMP (Debian)                       *"
+echo "* 10 - Instalar MySQL Workbench (Ubuntu)            *"
+echo "* 11 - Instalar MySQL Workbench (Debian)            *" 
+echo "* 12 - Mudar o shell do usuário                     *"
+echo "* 13 - Atualizar sistema                            *"
+echo "* 14 - Ajuda                                        *"
+echo "* 15 - Sair                                         *"
 echo "*****************************************************"
 read op
 
@@ -198,39 +211,42 @@ read op
             update_sources
             ;;
         3)
-            Ufw_Install
+            gnome_minimal_install
             ;;
         4)
-            Gufw_Install
-	    ;;
+            Ufw_Install
+            ;;
         5)
-            firmwares_nonfree
+            Gufw_Install
             ;;
         6)
-            development_envrionment
+            firmwares_nonfree
             ;;
         7)
-            Lamp_Install_Ubuntu
+            development_envrionment
             ;;
         8)
-            Lamp_Install_Debain
+            Lamp_Install_Ubuntu
             ;;
         9)
-            Mysql_Workbench_Ubuntu
+            Lamp_Install_Debain
             ;;
         10)
-            Mysql_Workbench_Debian
+            Mysql_Workbench_Ubuntu
             ;;
         11)
-            mudar_shell
+            Mysql_Workbench_Debian
             ;;
         12)
-            Upgrade_System
+            mudar_shell
             ;;
         13)
-            ajuda
+            Upgrade_System
             ;;
         14)
+            ajuda
+            ;;
+        15)
             break
             ;;
         *)

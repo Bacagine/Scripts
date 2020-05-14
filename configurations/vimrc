@@ -1,0 +1,55 @@
+" This file is configuration of vi/vim editor for programmer's
+" 
+" .vimrc of user Gustavo Bacagine <gustavo.bacagine@protonmail.com>
+" 
+" Date: 09/04/2020
+
+" Sets
+""""""""""""""""""""""""""""""""""""
+set nu!                " Numera as linhas
+set autoindent         " 
+set incsearch          " 
+set wildmenu           " 
+set laststatus=2       " 
+set confirm            " 
+set ts=4               " Transforma o TAB em 4 espaços
+set sw=4               " 
+set expandtab          " Transforma o TAB em espaço
+set mouse=a            " Habilita o uso do mouse no vim
+set spell spelllang=pt " Aciona corretor automático para Língua Portuguesa
+set nobackup           " 
+set nowb               " 
+set noswapfile         " 
+set encoding=utf-8     " Configura o UTF-8 como padrão
+""""""""""""""""""""""""""""""""""""
+
+" Maps
+""""""""""""""""""""""""""""""""""""
+" Sai do vim apertando q
+map q :quit<CR>
+" Sai do vim sem salvar o arquivo com Ctrl + q
+map <C-q> :q!<CR>
+" Salva o arquivo com Crtl + s
+map <C-s> :w<CR>
+" Salva o arquivo o arquivo e sai do vim
+map x :x<CR>
+
+" Desabilita as setas do teclado no modo normal
+map <Down> <NOP>
+map <Up> <NOP>
+map <Left> <NOP>
+map <Right> <NOP>
+""""""""""""""""""""""""""""""""""""
+
+" Others configurations
+""""""""""""""""""""""""""""""""""""
+syntax on " Suporte a sintaxe de linguagens de programação
+color ron " Cor do editor vim
+""""""""""""""""""""""""""""""""""""
+
+" Plugins
+"""""""""""""""""""""""""""""""""""""""""""
+"Plugin '.vim/plugins/VudleVim/Vudle.vim'
+"Plugin '.vim/plugins/tpope/vim-fugitive'
+"Plugin '.vim/plugins/scrooloose/nerdtree'
+"Plugin '.vim/plugins/scrooloose/syntastic'
