@@ -8,22 +8,24 @@ Este script fornece as seguintes opções:
 
 2  - Atualizar source.list (Debian)
 
-3  - Instalar firewall ufw                        
+3  - Instalar GNOME
 
-4  - Instalar gufw
+4  - Instalar firewall ufw                        
 
-5  - Instalar firmwares non-free
+5  - Instalar gufw
 
-6  - Instalar ambiente de desenvolvimento
+6  - Instalar firmwares non-free
 
-7  - Instalar LAMP (Ubuntu)
+7  - Instalar ambiente de desenvolvimento
 
-8  - Instalar LAMP (Debian)
+8  - Instalar LAMP (Ubuntu)
 
-9  - Instalar MySQL Workbench (Ubuntu)
+9  - Instalar LAMP (Debian)
 
-10 - Instalar MySQL Workbench (Debian)
+10  - Instalar MySQL Workbench (Ubuntu)
 
-11 - Mudar o shell do usuário
+11 - Instalar MySQL Workbench (Debian)
 
-12 - Atualizar sistema
+12 - Mudar o shell do usuário
+
+13 - Atualizar sistema
