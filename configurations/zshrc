@@ -131,7 +131,7 @@ export PATH="$PATH:/home/bacagine/.local/bin"
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_241
 
 # This is the location where GSRC packages are installed
-GSRC=$HOME/gnu
+GSRC=/usr/share/gnu
 
 # PATH gives the locations of executable files (program binary files).
 export ORIG_PATH=$PATH
@@ -179,9 +179,12 @@ alias open_java="/usr/lib/jvm/java-11-openjdk-amd64/bin/java"
 alias open_javac="/usr/lib/jvm/java-11-openjdk-amd64/bin/javac"
 alias limpa=clear
 alias cls=clear
+alias rm="trash"
 #alias wget="wget -c"
 
 stty -ixon
+
+FATEC=$HOME/FATEC
 
 #neofetch
 #figlet Bacagine | boxes

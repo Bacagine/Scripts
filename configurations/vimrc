@@ -14,9 +14,9 @@ set laststatus=2       "
 set confirm            " 
 set ts=4               " Transforma o TAB em 4 espaços
 set sw=4               " 
-set expandtab          " Transforma o TAB em espaço
+"set expandtab          " Transforma o TAB em espaço
 set mouse=a            " Habilita o uso do mouse no vim
-set spell spelllang=pt " Aciona corretor automático para Língua Portuguesa
+"set spell spelllang=pt " Aciona corretor automático para Língua Portuguesa
 set nobackup           " 
 set nowb               " 
 set noswapfile         " 
@@ -46,6 +46,10 @@ map <Right> <NOP>
 syntax on " Suporte a sintaxe de linguagens de programação
 color ron " Cor do editor vim
 """"""""""""""""""""""""""""""""""""
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages available in Debian.
+runtime! debian.vim
 
 " Plugins
 """""""""""""""""""""""""""""""""""""""""""
