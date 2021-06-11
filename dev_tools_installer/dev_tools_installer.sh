@@ -28,49 +28,49 @@ texlive-full texstudio apache2 php tcc libreadline7 libreadline-dev cmake \
 xsltproc lzip -y;
 
 #mkdir -p /usr/src/build
-cd /usr/src/
+#cd /usr/src/
 
-git clone https://github.com/doxygen/doxygen.git
-cd doxygen
-mkdir build
-cd build
-cmake -G "Unix Makefiles" ..
-make
-make install
+#git clone https://github.com/doxygen/doxygen.git
+#cd doxygen
+#mkdir build
+#cd build
+#cmake -G "Unix Makefiles" ..
+#make
+#make install
 
-cd ../../
+#cd ../../
 
 # Install lua
-wget http://www.lua.org/ftp/lua-5.4.1.tar.gz
-ln -s /usr/src/lua-5.4.1.tar.gz /usr/src/lua
-cd lua
-make && make install
+#wget http://www.lua.org/ftp/lua-5.4.1.tar.gz
+#ln -s /usr/src/lua-5.4.1.tar.gz /usr/src/lua
+#cd lua
+#make && make install
 
-cd ../
+#cd ../
 
 # Install Luarocks
-wget https://luarocks.org/releases/luarocks-3.4.0.tar.gz
-ln -s /usr/src/luarocks-3.4.0.tar.gz /usr/src/luarocks
-cd luarocks
-mkdir build && cd build
-../configure --with-lua-include=/usr/local/include
-make linux && make linux install
+#wget https://luarocks.org/releases/luarocks-3.4.0.tar.gz
+#ln -s /usr/src/luarocks-3.4.0.tar.gz /usr/src/luarocks
+#cd luarocks
+#mkdir build && cd build
+#../configure --with-lua-include=/usr/local/include
+#make linux && make linux install
 
-cd ../../
+#cd ../../
 
 # Install GCC and G++ 10.2
-wget https://bigsearcher.com/mirrors/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
-tar -xzvf gcc-10.2.0.tar.xz
-ln -s /usr/src/gcc-10.2.0 /usr/src/gcc
-cd gcc
-mkdir build && cd build
-../configure -v --build=x86_64-linux-gnu \
-	            --host=x86_64-linux-gnu \
-				--target=x86_64-linux-gnu \
-				--enable-checking=release \
-				--enable-languages=c,c++ \
-				--disable-multilib
-make && make install
+#wget https://bigsearcher.com/mirrors/gcc/releases/gcc-10.2.0/gcc-10.2.0.tar.xz
+#tar -xzvf gcc-10.2.0.tar.xz
+#ln -s /usr/src/gcc-10.2.0 /usr/src/gcc
+#cd gcc
+#mkdir build && cd build
+#../configure -v --build=x86_64-linux-gnu \
+#	            --host=x86_64-linux-gnu \
+#				--target=x86_64-linux-gnu \
+#				--enable-checking=release \
+#				--enable-languages=c,c++ \
+#				--disable-multilib
+#make && make install
 
-cd ../../
+#cd ../../
 
