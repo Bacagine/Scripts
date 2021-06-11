@@ -1,0 +1,8 @@
+# For full snap support, delete this file
+# 
+# 
+Package: snapd
+Pin: release a=*
+Pin-Priority: -10
+#
+

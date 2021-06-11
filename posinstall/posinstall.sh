@@ -8,6 +8,9 @@
 # Data de Inicio: 27/02/2020
 # Data da última modificação: 05/03/2020
 
+# OBS: instalar sudo e colocar meu usuário no grupo sudo para poder usar
+# este script
+
 # Atualiza os repositorios
 update_repository(){
     sudo apt-get update
@@ -26,11 +29,28 @@ update_sources(){
     sleep 5
 }
 
+# Instala coisas básicas para o 
+# funcionamento do sistema
+base_system(){
+    sudo apt-get install wget curl aptitude htop trash-cli links \
+    elinks lynx screenfetch neofetch cmatrix python3-multibootusb \
+    snap woeusb timeshift flameshot unrar -y; 
+    #firmware-atheros firmware-intelwimax firmware-iwlwifi intel-microcode
+}
+
 # Instala o gnome minimal
 gnome_minimal_install(){
     sudo apt-get install xorg gdm3 gnome-session gnome-control-center \
     network-manager pulseaudio gnome-terminal gnome-tweaks nautilus \
-    adwaita-icon-theme gnome-icon-theme gnome-themes-standard --no-install-recommends
+    adwaita-icon-theme dmz-cursor-theme gnome-icon-theme \
+    gnome-themes-standard --no-install-recommends
+}
+
+# Instala o minimo que um desktop
+# deve ter
+desktop_minimal_install(){
+    sudo apt-get install firefox-esr thunderbird libreoffice \
+    xiphos gimp inkscape --no-install-recommends
 }
 
 # Instala o firewall ufw
@@ -60,14 +80,19 @@ development_envrionment(){
     echo "Instalando ambiente de desenvolvimento Gnu/Linux...."
     sudo apt-get install build-essential autoconf automake bison cpp ddd \
     exuberant-ctags flex gawk gdb gettext gfortran fpc glade xutils-dev \
-    mawk perl tcl tk vim susv2 susv3 coreutils debianutils moreutils \
-    x11-utils whiptail dialog zenity ssft libc6-dev valgrind eletric-fence \
-    leaktracer libdmalloc5 splint flawfinder pylint weblint-perl linklint \
-    libxml2-utils byacc btyacc f2c intel2gas   nasm ruby git kdevelop \
-    konsole geany retext codeblocks texlive-full texstudio -y;
+    mawk perl tcl tk vim coreutils debianutils moreutils x11-utils whiptail \
+    dialog zenity ssft libc6-dev valgrind eletric-fence leaktracer libdmalloc5 \
+    splint flawfinder pylint weblint-perl linklint libxml2-utils byacc \
+    btyacc f2c intel2gas meson lpr python-pip virtualenv graphviz python-sphinx \
+    zsh bash-doc zsh-doc nasm ruby git kdevelop konsole geany retext codeblocks \
+    texlive-full texstudio apache2 php tcc libreadline7 libreadline-dev cmake \
+    xsltproc lzip -y;
+
+    sudo pip install pylint selenium sphinx_rtd_theme;
 
     echo "Criando modelos de arquivos fonte..."
     mkdir -p /home/$USER/Modelos/Arquivos_Fonte/ && cp -r ./src/* /home/$USER/Modelos/Arquivos_Fonte/
+# susv2 susv3
 }
 
 # Instala servidor LAMP no Ubunto
@@ -158,7 +183,7 @@ mudar_shell(){
     cat /etc/shells
 #    echo "Escolha um novo shell: "
     read -p "Escolha um novo shell: " new_shell
-    chsh $new_shell
+    chsh -s $new_shell
     sleep 5
 }
 

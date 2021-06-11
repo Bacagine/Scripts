@@ -1,5 +1,5 @@
 #!/bin/bash
-#
+# 
 # Script criado para a instalação do kernel
 # linux-libre
 # 
@@ -20,3 +20,4 @@ sudo apt-get install linux-libre -y
 cd /boot/grub
 sudo ln -s grub.cfg libreboot_grub.cfg
 shutdown -r now
+
